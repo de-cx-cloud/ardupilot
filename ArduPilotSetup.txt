@@ -1,0 +1,41 @@
+OS Ubuntu 22.04. on AWS WorkSpace
+
+ --- Setup SITL on Linux --- (Mandatory)
+Clone Repo
+
+git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git
+or
+git clone --recurse-submodules https://github.com/de-cx-cloud/ardupilot
+cd ardupilot
+
+Install some required packages
+
+From the cloned ardupilot directory:
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+
+Reload the path (log-out and log-in to make it permanent):
+. ~/.profile
+
+Install the basic Objects and configure your copter:
+https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md#basic-usage
+
+Start SITL simulator without 3D Environment:
+cd ardupilot/ArduCopter
+sim_vehicle.py --console --map -w
+
+
+--- Using / Understanding SITL --- (Mandatory)
+Understanding MAVProxy:
+https://ardupilot.org/mavproxy/index.html#home
+
+Using SITL / Commands:
+https://ardupilot.org/dev/docs/using-sitl-for-ardupilot-testing.html
+
+
+
+--- 3D Environment --- (Optional)
+Install Flightgear (3D Environment)
+sudo apt-get install flightgear
+
+Open a new command prompt and run the appropriate shell file for your vehicle in /ardupilot/Tools/autotest/: fg_plane_view.sh (Plane) and fg_quad_view.sh (Copter).
+
